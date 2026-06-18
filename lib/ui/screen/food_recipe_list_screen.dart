@@ -43,15 +43,29 @@ class _HomeScreenState extends State<FoodRecipeListScreen> {
         itemBuilder: (context, index) {
           final recipe = recipes[index];
           return ListTile(
-            leading: Icon(Icons.restaurant, color: Colors.grey, size: 26),
-            title: Text(recipe.title),
+            leading: Icon(
+              Icons.lunch_dining_rounded,
+              color: Colors.grey,
+              size: 26,
+            ),
+            title: Text(
+              recipe.title,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
             subtitle: Column(
               crossAxisAlignment: .start,
               children: [
-                Text(recipe.description),
-                Text(recipe.ingredients.join(',')),
+                Text(
+                  recipe.description,
+                  style: TextStyle(color: Colors.grey, fontSize: 14),
+                ),
+                // Text(
+                //   recipe.ingredients.join(','),
+                //   style: TextStyle(color: Colors.grey, fontSize: 14),
+                // ),
               ],
             ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
           );
         },
       ),

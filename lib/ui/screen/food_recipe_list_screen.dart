@@ -36,37 +36,45 @@ class _HomeScreenState extends State<FoodRecipeListScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text('Food Recipes', style: TextStyle(color: Colors.white)),
+        title: Text(
+          'Food Recipes',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       body: ListView.builder(
         itemCount: recipes.length,
         itemBuilder: (context, index) {
           final recipe = recipes[index];
-          return ListTile(
-            leading: Icon(
-              Icons.lunch_dining_rounded,
-              color: Colors.grey,
-              size: 26,
-            ),
-            title: Text(
-              recipe.title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            ),
-            subtitle: Column(
-              crossAxisAlignment: .start,
-              children: [
-                Text(
-                  recipe.description,
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
-                ),
-                // Text(
-                //   recipe.ingredients.join(','),
-                //   style: TextStyle(color: Colors.grey, fontSize: 14),
-                // ),
-              ],
-            ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
-          );
+          return recipes.isEmpty
+              ? Center(child: CircularProgressIndicator())
+              : ListTile(
+                  leading: Icon(
+                    Icons.lunch_dining_rounded,
+                    color: Colors.grey,
+                    size: 26,
+                  ),
+                  title: Text(
+                    recipe.title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        recipe.description,
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
+                      ),
+                      // Text(
+                      //   recipe.ingredients.join(','),
+                      //   style: TextStyle(color: Colors.grey, fontSize: 14),
+                      // ),
+                    ],
+                  ),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 2,
+                  ),
+                );
         },
       ),
     );

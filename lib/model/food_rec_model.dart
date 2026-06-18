@@ -9,6 +9,8 @@ class FoodRecModel {
     required this.ingredients,
   });
 
+  
+
 
 
   factory FoodRecModel.fromJson(Map<String, dynamic> json) {

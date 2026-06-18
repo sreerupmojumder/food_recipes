@@ -16,9 +16,8 @@ class _HomeScreenState extends State<FoodRecipeListScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
     _parseJsonData();
+    super.initState();
   }
 
   void _parseJsonData() {
